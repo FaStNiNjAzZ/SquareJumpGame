@@ -1,0 +1,73 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerScript : MonoBehaviour
+{
+    public float jumpPower = 10.0f;
+    Rigidbody2D myRigidbody;
+    bool isGrounded = false;
+    float posX = 0.0f;
+    bool isGameOver = false;
+    public float scrollSpeed = 5.0f;
+    SideScrollingPlayer mySideScrollingPlayer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        myRigidbody = transform.GetComponent<Rigidbody2D>();
+        posX = transform.position.x;
+        mySideScrollingPlayer = GameObject.FindObjectOfType<SideScrollingPlayer>();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (Input.GetKey (KeyCode.Space) && isGrounded )//&& !isGameOver)
+        {
+            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
+        }
+        //Rigidbody2D player = GetComponent<Rigidbody2D>();
+        //Vector2 vel = player.velocity;
+        //if (vel.magnitude == 0)
+        //{
+          //  GameOver();
+        //}
+    }
+
+    void Update()
+    {
+
+    }
+
+    void GameOver()
+    {
+        isGameOver = true;
+        //mySideScrollingPlayer.GamerOver();
+    }
+
+    void OnCollisionEnter2D (Collision2D other)
+    {
+        if (other.collider.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.collider.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.collider.tag == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
+}
