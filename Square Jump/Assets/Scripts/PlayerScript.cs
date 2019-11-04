@@ -27,11 +27,25 @@ public class PlayerScript : MonoBehaviour
         {
             myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
         }
+        if (Input.GetKey(KeyCode.Mouse0) && isGrounded)//&& !isGameOver)
+        {
+            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
+        }
+        if (Input.GetKey(KeyCode.UpArrow) && isGrounded)//&& !isGameOver)
+        {
+            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 5.0f));
+        }
+
         //Rigidbody2D player = GetComponent<Rigidbody2D>();
         //Vector2 vel = player.velocity;
         //if (vel.magnitude == 0)
         //{
-          //  GameOver();
+        //  GameOver();
         //}
     }
 
@@ -52,6 +66,11 @@ public class PlayerScript : MonoBehaviour
         {
             isGrounded = true;
         }
+        if (other.collider.tag == "KillTrigger")
+        {
+            GameOver();
+            Debug.Log("Gamer Over");
+        }
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -70,4 +89,5 @@ public class PlayerScript : MonoBehaviour
             isGrounded = false;
         }
     }
+
 }

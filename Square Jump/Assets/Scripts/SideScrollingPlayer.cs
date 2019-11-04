@@ -29,12 +29,13 @@ public class SideScrollingPlayer : MonoBehaviour
 
     void playerScroll(GameObject playerGameObject)
     {
-        playerGameObject.transform.position -= Vector3.right * (scrollSpeed * Time.deltaTime);
+        playerGameObject.transform.position -= Vector3.left * (scrollSpeed * Time.deltaTime);
     }
 
     public void GameOver()
     {
         isGameOver = true;
+        transform.GetComponent<GameController>().GameOver();
     }
 
 }

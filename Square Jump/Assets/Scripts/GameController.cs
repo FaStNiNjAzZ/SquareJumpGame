@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         Invoke("ShowOverPanel", 2.0f);
+        Debug.Log("GamerOver");
     }
 
     void ShowOverPanel()
@@ -28,6 +29,9 @@ public class GameController : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    public void
+    public void Restart()
+    {
+        Application.LoadLevel(Application.loadedLevelName);
+    }
 }
 
