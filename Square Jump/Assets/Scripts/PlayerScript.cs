@@ -57,7 +57,7 @@ public class PlayerScript : MonoBehaviour
     void GameOver()
     {
         isGameOver = true;
-        //mySideScrollingPlayer.GamerOver();
+        mySideScrollingPlayer.GameOver();
     }
 
     void OnCollisionEnter2D (Collision2D other)

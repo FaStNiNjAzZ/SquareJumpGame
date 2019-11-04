@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
         Debug.Log("GamerOver");
     }
 
-    void ShowOverPanel()
+    public void ShowOverPanel()
     {
         gameOverPanel.SetActive(true);
     }
