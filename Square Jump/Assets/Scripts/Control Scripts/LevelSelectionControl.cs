@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuControl : MonoBehaviour
+public class LevelSelectionControl : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,14 +15,8 @@ public class MenuControl : MonoBehaviour
     {
         
     }
-
-    public void Exit()
+    public void MainMenuButton()
     {
-        Application.Quit();
-    }
-
-    public void LoadLevel1()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 }
