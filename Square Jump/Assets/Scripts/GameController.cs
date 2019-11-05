@@ -33,5 +33,10 @@ public class GameController : MonoBehaviour
     {
         Application.LoadLevel(Application.loadedLevelName);
     }
+
+    public void ExitToMainMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
 }
 
