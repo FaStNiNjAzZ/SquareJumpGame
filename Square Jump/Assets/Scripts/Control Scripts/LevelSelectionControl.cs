@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSelectionControl : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class LevelSelectionControl : MonoBehaviour
     }
     public void MainMenuButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Level1Button()
+    {
+        Application.LoadLevel("SampleScene");
     }
 }

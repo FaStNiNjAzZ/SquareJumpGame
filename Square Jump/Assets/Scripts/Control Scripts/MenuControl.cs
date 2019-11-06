@@ -23,6 +23,6 @@ public class MenuControl : MonoBehaviour
 
     public void LevelSelection()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelSelection");
+        Application.LoadLevel("LevelManager");
     }
 }
