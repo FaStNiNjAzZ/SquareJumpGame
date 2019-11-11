@@ -38,4 +38,10 @@ public class SideScrollingPlayer : MonoBehaviour
         transform.GetComponent<GameController>().GameOver();
     }
 
+    public void EndLevel1()
+    {
+        isGameOver = true;
+        transform.GetComponent<GameController>().EndLevel1();
+    }
+
 }

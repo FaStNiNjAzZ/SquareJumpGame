@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject endLevelPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,18 @@ public class GameController : MonoBehaviour
     public void ShowOverPanel()
     {
         gameOverPanel.SetActive(true);
+    }
+
+    public void EndLevel1()
+    {
+        Invoke("ShowCompletePanel", 2.0f);
+        Debug.Log("LevelComplete");
+        int LevelProgress1 = 1;
+    }
+
+    public void ShowCompletePanel()
+    {
+        endLevelPanel.SetActive(true);
     }
 
     public void Restart()

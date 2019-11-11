@@ -60,6 +60,12 @@ public class PlayerScript : MonoBehaviour
         mySideScrollingPlayer.GameOver();
     }
 
+    void EndLevel1()
+    {
+        isGameOver = true;
+        mySideScrollingPlayer.EndLevel1();
+    }
+
     void OnCollisionEnter2D (Collision2D other)
     {
         if (other.collider.tag == "Ground")
@@ -70,6 +76,10 @@ public class PlayerScript : MonoBehaviour
         {
             GameOver();
             Debug.Log("Gamer Over");
+        }
+        if (other.collider.tag == "End Level Trigger")
+        {
+            EndLevel1();
         }
     }
 

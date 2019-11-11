@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - KillTrigger
+  - End Level Trigger
   layers:
   - Default
   - TransparentFX
