@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuControl : MonoBehaviour
 {
+    LevelSelectionControl levelManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +26,6 @@ public class MenuControl : MonoBehaviour
     public void LevelSelection()
     {
         Application.LoadLevel("LevelManager");
+        //levelManager.EnableCanvas();
     }
 }

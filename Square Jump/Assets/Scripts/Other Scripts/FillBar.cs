@@ -9,7 +9,7 @@ public class FillBar : MonoBehaviour
     public Text displayText;
 
     // Create a property to handle the slider's value
-    public float currentValue = 0f;
+    public float currentValue;
     public float CurrentValue
     {
         get
@@ -22,6 +22,11 @@ public class FillBar : MonoBehaviour
             slider.value = currentValue;
             displayText.text = (slider.value * 100).ToString("0.00") + "%";
         }
+    }
+
+    void Awake()
+    {
+        currentValue = 0f;
     }
 
     // Use this for initialization
