@@ -7,24 +7,23 @@ public class GameController : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public GameObject endLevelPanel;
-    public Slider LevelProgressBar;
-    float LevelProgress1;
 
 
 
-    // Start is called before the first frame update
+
+    // Use this for initialization
     void Start()
     {
-        LevelProgress1 = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        LevelProgressBar.value = Level1Progress();
+
     }
 
-    public void GameOver()
+
+public void GameOver()
     {
         Invoke("ShowOverPanel", 2.0f);
         Debug.Log("GamerOver");
@@ -39,14 +38,9 @@ public class GameController : MonoBehaviour
     {
         Invoke("ShowCompletePanel", 2.0f);
         Debug.Log("LevelComplete");
-        LevelProgress1 = 1.0f;
-
     }
 
-    public void Level1Progress()
-    {
-        float progressBar = LevelProgress1;
-    }
+
 
     public void ShowCompletePanel()
     {
