@@ -49,6 +49,11 @@ public class PlayerScript : MonoBehaviour
             myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 5.0f));
         }
 
+        if (Input.GetKey(KeyCode.K))
+        {
+            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.gravityScale));
+        }
+
         //Rigidbody2D player = GetComponent<Rigidbody2D>();
         //Vector2 vel = player.velocity;
         //if (vel.magnitude == 0)
@@ -76,6 +81,34 @@ public class PlayerScript : MonoBehaviour
        // progressControl.Level1Completed();
     }
 
+    void OnTriggerEnter2D (Collider2D other)
+    {
+        if (other.tag == "0.5x Speed Trigger")
+        {
+            mySideScrollingPlayer.HalfXSpeed();
+            Debug.Log("0.5x Speed Trigger");
+        }
+
+        if (other.tag == "1x Speed Trigger")
+        {
+            mySideScrollingPlayer.OneXSpeed();
+            Debug.Log("1x Speed Trigger");
+        }
+
+        if (other.tag == "2x Speed Trigger")
+        {
+            mySideScrollingPlayer.TwoXSpeed();
+            Debug.Log("2x Speed Trigger");
+        }
+
+        if (other.tag == "3x Speed Trigger")
+        {
+            mySideScrollingPlayer.ThreeXSpeed();
+            Debug.Log("3x Speed Trigger");
+        }
+    }
+
+
     void OnCollisionEnter2D (Collision2D other)
     {
         if (other.collider.tag == "Ground")
@@ -89,9 +122,9 @@ public class PlayerScript : MonoBehaviour
         }
         if (other.collider.tag == "End Level Trigger")
         {
-            
             EndLevel1();
         }
+        
     }
 
     void OnCollisionStay2D(Collision2D other)

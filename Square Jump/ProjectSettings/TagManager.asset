@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - KillTrigger
   - End Level Trigger
+  - 2x Speed Trigger
+  - 1x Speed Trigger
+  - 3x Speed Trigger
+  - 0.5x Speed Trigger
   layers:
   - Default
   - TransparentFX

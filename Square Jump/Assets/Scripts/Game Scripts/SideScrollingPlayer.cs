@@ -44,4 +44,24 @@ public class SideScrollingPlayer : MonoBehaviour
         transform.GetComponent<GameController>().EndLevel1();
     }
 
+    public void HalfXSpeed()
+    {
+        scrollSpeed = 2.5f;
+    }
+
+    public void OneXSpeed()
+    {
+        scrollSpeed = 5.0f;
+    }
+
+    public void TwoXSpeed()
+    {
+        scrollSpeed = 10.0f;
+    }
+
+    public void ThreeXSpeed()
+    {
+        scrollSpeed = 15.0f;
+    }
+
 }
