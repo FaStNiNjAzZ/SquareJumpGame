@@ -11,13 +11,13 @@ public class PlayerScript : MonoBehaviour
     bool isGameOver = false;
     public float scrollSpeed = 5.0f;
     SideScrollingPlayer mySideScrollingPlayer;
-    public FillBar fillBar;
+    ProgressControl progressControl;
 
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
+    //void Awake()
+    //{
+  //      DontDestroyOnLoad(this.gameObject);
+//    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
         myRigidbody = transform.GetComponent<Rigidbody2D>();
         posX = transform.position.x;
         mySideScrollingPlayer = GameObject.FindObjectOfType<SideScrollingPlayer>();
-        fillBar = GameObject.FindObjectOfType<FillBar>();
+        //fillBar = GameObject.FindObjectOfType<FillBar>();
     }
 
     // Update is called once per frame
@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
     {
         isGameOver = true;
         mySideScrollingPlayer.EndLevel1();
-        fillBar.Level1Completed();
+       // progressControl.Level1Completed();
     }
 
     void OnCollisionEnter2D (Collision2D other)
