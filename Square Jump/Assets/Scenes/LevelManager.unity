@@ -190,7 +190,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fly Away
+  m_Text: 'Betrayal
+
+    of Fear'
 --- !u!222 &40396265
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -667,7 +669,7 @@ GameObject:
   - component: {fileID: 726030237}
   - component: {fileID: 726030236}
   m_Layer: 5
-  m_Name: FlyAway
+  m_Name: Betrayal of Fear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

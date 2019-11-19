@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    //Variables
     public float jumpPower = 10.0f;
     Rigidbody2D myRigidbody;
     bool isGrounded = false;
@@ -12,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public float scrollSpeed = 5.0f;
     SideScrollingPlayer mySideScrollingPlayer;
     ProgressControl progressControl;
+    string gameMode;
 
 
     //void Awake()
@@ -26,20 +28,37 @@ public class PlayerScript : MonoBehaviour
         posX = transform.position.x;
         mySideScrollingPlayer = GameObject.FindObjectOfType<SideScrollingPlayer>();
         //fillBar = GameObject.FindObjectOfType<FillBar>();
+        gameMode = "Square";
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey (KeyCode.Space) && isGrounded )//&& !isGameOver)
+        //Game Controls
+        if (gameMode == "Square")
+        {
+            if (Input.GetKey(KeyCode.Mouse0) && isGrounded)//&& !isGameOver)
+            {
+                myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
+            }
+        }
+
+        if (gameMode == "Fly")
+        {
+            if (Input.GetKey(KeyCode.Mouse0))//&& !isGameOver) 
+            {
+                myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 5.0f));
+            }
+        }
+
+
+        /*if (Input.GetKey (KeyCode.Space) && isGrounded )//&& !isGameOver)
         {
             myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
-        }
-        if (Input.GetKey(KeyCode.Mouse0) && isGrounded)//&& !isGameOver)
-        {
-            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
-        }
-        if (Input.GetKey(KeyCode.UpArrow) && isGrounded)//&& !isGameOver)
+        }*/
+
+
+        /*if (Input.GetKey(KeyCode.UpArrow) && isGrounded)//&& !isGameOver)
         {
             myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 20.0f));
         }
@@ -52,7 +71,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.K))
         {
             myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.gravityScale));
-        }
+        }*/
 
         //Rigidbody2D player = GetComponent<Rigidbody2D>();
         //Vector2 vel = player.velocity;
@@ -83,6 +102,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D other)
     {
+        //Game altering triggers
         if (other.tag == "0.5x Speed Trigger")
         {
             mySideScrollingPlayer.HalfXSpeed();
@@ -105,6 +125,30 @@ public class PlayerScript : MonoBehaviour
         {
             mySideScrollingPlayer.ThreeXSpeed();
             Debug.Log("3x Speed Trigger");
+        }
+
+        if (other.tag == "Flip Gravity 1")
+        {
+            myRigidbody.gravityScale *= -1;
+            Debug.Log("Flip Gravity 1");
+        }
+
+        if (other.tag == "Flip Gravity 0")
+        {
+            myRigidbody.gravityScale *= 1;
+            Debug.Log("Flip Gravity 0");
+        }
+
+        if (other.tag == "Square Gamemode")
+        {
+            gameMode = "Square";
+            Debug.Log("Square Gamemode");
+        }
+
+        if (other.tag == "Fly Gamemode")
+        {
+            gameMode = "Fly";
+            Debug.Log("Fly Gamemode");
         }
     }
 

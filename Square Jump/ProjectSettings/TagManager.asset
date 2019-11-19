@@ -11,6 +11,10 @@ TagManager:
   - 1x Speed Trigger
   - 3x Speed Trigger
   - 0.5x Speed Trigger
+  - Flip Gravity 0
+  - Flip Gravity 1
+  - Square Gamemode
+  - Fly Gamemode
   layers:
   - Default
   - TransparentFX
