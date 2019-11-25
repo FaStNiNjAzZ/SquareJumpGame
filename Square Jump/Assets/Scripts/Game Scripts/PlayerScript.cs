@@ -16,10 +16,6 @@ public class PlayerScript : MonoBehaviour
     string gameMode;
 
 
-    //void Awake()
-    //{
-  //      DontDestroyOnLoad(this.gameObject);
-//    }
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +44,32 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))//&& !isGameOver) 
             {
                 myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 5.0f));
+            }
+        }
+
+
+
+        
+        
+
+        if (gameMode == "Swing Copter")
+        {
+            if (myRigidbody.gravityScale == myRigidbody.gravityScale * 1)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0))//&& !isGameOver) 
+                {
+                    Debug.Log("Working2");
+                    myRigidbody.gravityScale *= -1;
+                }
+
+            if (myRigidbody.gravityScale == myRigidbody.gravityScale * -1)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse0))//&& !isGameOver) 
+                    {
+                        Debug.Log("Working1");
+                        myRigidbody.gravityScale *= 1;
+                    }     
+                }
             }
         }
 
@@ -149,6 +171,12 @@ public class PlayerScript : MonoBehaviour
         {
             gameMode = "Fly";
             Debug.Log("Fly Gamemode");
+        }
+
+        if (other.tag == "Swing Copter Gamemode")
+        {
+            gameMode = "Swing Copter";
+            Debug.Log("Swing Copter");
         }
     }
 
