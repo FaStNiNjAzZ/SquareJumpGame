@@ -47,11 +47,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-
-
-        
-        
-
         if (gameMode == "Swing Copter")
         {
             if (myRigidbody.gravityScale == myRigidbody.gravityScale * 1)
@@ -72,6 +67,32 @@ public class PlayerScript : MonoBehaviour
                 }
             }
         }
+
+        if (gameMode == "Wave Wave")
+        {
+            myRigidbody.gravityScale *= 0;
+            //myRigidbody.angularDrag = 0;
+            if (Input.GetKey(KeyCode.Mouse0))//&& !isGameOver) 
+            {
+                //myRigidbody.gravityScale *= 0;
+                myRigidbody.gravityScale = -1;
+            }
+
+            if (!Input.GetKey(KeyCode.Mouse0))//&& !isGameOver) 
+            {
+
+                myRigidbody.gravityScale = +1;
+            }
+        }
+
+        if (gameMode == "Air Jump")
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))//&& !isGameOver)
+            {
+                myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 50.0f));
+            }
+        }
+
 
 
         /*if (Input.GetKey (KeyCode.Space) && isGrounded )//&& !isGameOver)
@@ -177,6 +198,24 @@ public class PlayerScript : MonoBehaviour
         {
             gameMode = "Swing Copter";
             Debug.Log("Swing Copter");
+        }
+
+        if (other.tag == "Wave Wave Gamemode")
+        {
+            gameMode = "Wave Wave";
+            Debug.Log("Wave Wave");
+        }
+
+        if (other.tag == "Air Jump Gamemode")
+        {
+            gameMode = "Air Jump";
+            Debug.Log("Air Jump");
+        }
+
+        if (other.tag == "Jump Pad")
+        {
+            myRigidbody.AddForce(Vector3.up * (jumpPower * myRigidbody.mass * myRigidbody.gravityScale * 50.0f));
+            Debug.Log("Jump Pad");
         }
     }
 

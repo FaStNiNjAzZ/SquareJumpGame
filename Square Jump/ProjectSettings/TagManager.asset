@@ -15,6 +15,9 @@ TagManager:
   - Flip Gravity 1
   - Square Gamemode
   - Fly Gamemode
+  - Wave Wave Gamemode
+  - Jump Pad
+  - Air Jump Gamemode
   layers:
   - Default
   - TransparentFX
