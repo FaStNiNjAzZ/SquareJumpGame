@@ -235,7 +235,11 @@ public class PlayerScript : MonoBehaviour
         {
             EndLevel1();
         }
-        
+        if (other.collider.tag == "Jump Pad")
+        {
+            isGrounded = true;
+        }
+
     }
 
     void OnCollisionStay2D(Collision2D other)
