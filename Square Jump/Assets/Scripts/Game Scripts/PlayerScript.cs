@@ -14,12 +14,23 @@ public class PlayerScript : MonoBehaviour
     SideScrollingPlayer mySideScrollingPlayer;
     ProgressControl progressControl;
     string gameMode;
+    private SpriteRenderer rend;
+    private Sprite cubeSprite, shipSprite;
+    
+
+    
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
+        cubeSprite = Resources.Load<Sprite>("Icon3 half");
+        shipSprite = Resources.Load<Sprite>("Ship");
+        rend.sprite = cubeSprite;
+
         myRigidbody = transform.GetComponent<Rigidbody2D>();
         posX = transform.position.x;
         mySideScrollingPlayer = GameObject.FindObjectOfType<SideScrollingPlayer>();
@@ -186,12 +197,14 @@ public class PlayerScript : MonoBehaviour
         {
             gameMode = "Square";
             Debug.Log("Square Gamemode");
+            rend.sprite = cubeSprite;
         }
 
         if (other.tag == "Fly Gamemode")
         {
             gameMode = "Fly";
             Debug.Log("Fly Gamemode");
+            rend.sprite = shipSprite;
         }
 
         if (other.tag == "Swing Copter Gamemode")
